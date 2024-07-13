@@ -6,13 +6,14 @@ export const FavoritesContext = createContext({
   removeFavorite: (id) => {},
 });
 
-function FavoritesContextProvider(children) {
+function FavoritesContextProvider({children}) {
   const [favoriteMealIds, setFavoriteMealIds] =  useState([]);
 
   function addFavorite(id) {
     setFavoriteMealIds((currentFavIds) => [...currentFavIds, id] )
   }
 
+  // 
   function removeFavorite(id) {
     setFavoriteMealIds((currentFavIds) => currentFavIds.filter(mealId => mealId !== id))
   }
